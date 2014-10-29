@@ -1,0 +1,16 @@
+[
+{
+  "modid": "HM2",
+  "name": "Hawk's Machinery 2",
+  "description": "Some form of hybrid between a tech mod and total overhaul.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["Elusivehawk"],
+  "credits": "My  testers",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
