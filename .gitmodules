@@ -1,0 +1,3 @@
+[submodule "HawkUtils"]
+	path = HawkUtils
+	url = https://github.com/Elusivehawk/HawkUtils
