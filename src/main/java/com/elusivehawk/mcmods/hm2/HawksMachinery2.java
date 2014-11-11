@@ -4,7 +4,6 @@ package com.elusivehawk.mcmods.hm2;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;

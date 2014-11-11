@@ -3,6 +3,7 @@ package com.elusivehawk.mcmods.hm1.machine.client;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 import com.elusivehawk.mcmods.hm1.HMCore;
 
@@ -14,20 +15,17 @@ import com.elusivehawk.mcmods.hm1.HMCore;
  */
 public class HMRenderCrusher extends TileEntitySpecialRenderer
 {
-	private HMModelCrusher model;
-	
-	public HMRenderCrusher()
-	{
-		this.model = new HMModelCrusher();
-		
-	}
+	private final ResourceLocation texture = new ResourceLocation(HMCore.TEXTURE_PATH, "/Crusher.png");
+	private final HMModelCrusher model = new HMModelCrusher();
 	
 	@Override
 	public void renderTileEntityAt(TileEntity var1, double var2, double var3, double var4, float var5)
 	{
-		this.bindTextureByName(HMCore.TEXTURE_PATH + "/Crusher.png");
+		this.bindTexture(this.texture);
+		
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) var2 + 0.5F, (float) var3 + 1.5F, (float) var4 + 0.5F);
+		
 		switch (((IRotatable)var1).getDirection().ordinal())
 		{
 			case 2: GL11.glRotatef(90, 0.0F, 1.0F, 0.0F); break;

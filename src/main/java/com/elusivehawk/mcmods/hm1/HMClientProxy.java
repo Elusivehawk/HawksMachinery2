@@ -1,8 +1,8 @@
 
 package com.elusivehawk.mcmods.hm1;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraftforge.client.MinecraftForgeClient;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
  * 

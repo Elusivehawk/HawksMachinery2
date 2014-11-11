@@ -2,17 +2,11 @@
 package com.elusivehawk.mcmods.hmu;
 
 import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 import com.google.common.io.ByteStreams;
 import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.ModContainer;
 
 /**
  * 

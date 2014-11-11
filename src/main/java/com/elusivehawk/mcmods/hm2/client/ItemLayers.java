@@ -3,7 +3,6 @@ package com.elusivehawk.mcmods.hm2.client;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import net.minecraft.util.IIcon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

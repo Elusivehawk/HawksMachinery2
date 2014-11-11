@@ -1,14 +1,12 @@
 
 package com.elusivehawk.mcmods.hm2.client;
 
-import org.lwjgl.opengl.GL11;
-import com.elusivehawk.mcmods.hm2.HawksMachinery2;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.IBlockAccess;
+import com.elusivehawk.mcmods.hm2.HawksMachinery2;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 
 /**
  * 

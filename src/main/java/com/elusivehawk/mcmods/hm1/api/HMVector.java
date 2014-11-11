@@ -4,14 +4,13 @@ package com.elusivehawk.mcmods.hm1.api;
 import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.ForgeDirection;
-import universalelectricity.core.vector.Vector3;
+import net.minecraftforge.common.util.ForgeDirection;
 
 /**
  * 
@@ -53,44 +52,39 @@ public class HMVector
 		
 	}
 	
-	public boolean setBlockId(int id)
+	public boolean setBlockId(Block block)
 	{
-		return this.setBlockWithMeta(id, 0);
+		return this.setBlockWithMeta(block, 0);
 	}
 	
-	public boolean setBlockIdWithDir(int id, ForgeDirection dir)
+	public boolean setBlockIdWithDir(Block block, ForgeDirection dir)
 	{
-		return this.setBlockWithMetaPlusDir(id, 0, dir);
+		return this.setBlockWithMetaPlusDir(block, 0, dir);
 	}
 	
-	public boolean setBlockWithMeta(int id, int meta)
+	public boolean setBlockWithMeta(Block block, int meta)
 	{
-		return this.setBlockWithMetaPlusDir(id, meta, ForgeDirection.UNKNOWN);
+		return this.setBlockWithMetaPlusDir(block, meta, ForgeDirection.UNKNOWN);
 	}
 	
-	public boolean setBlockWithMetaPlusDir(int id, int meta, ForgeDirection dir)
+	public boolean setBlockWithMetaPlusDir(Block block, int meta, ForgeDirection dir)
 	{
-		return this.worldObj.setBlockAndMetadataWithNotify(this.xCoord + dir.offsetX, this.yCoord + dir.offsetY, this.zCoord + dir.offsetZ, id, meta);
+		return this.worldObj.setBlock(this.xCoord + dir.offsetX, this.yCoord + dir.offsetY, this.zCoord + dir.offsetZ, block, meta, 3);
 	}
 	
-	public int getBlockId()
-	{
-		return this.getBlockIdWithDir(ForgeDirection.UNKNOWN);
-	}
-	
-	public int getBlockIdWithDir(ForgeDirection dir)
-	{
-		return this.worldObj.getBlockId(this.xCoord + dir.offsetX, this.yCoord + dir.offsetY, this.zCoord + dir.offsetZ);
-	}
-	
-	public Block getBlock()
+	public Block getBlockId()
 	{
 		return this.getBlockWithDir(ForgeDirection.UNKNOWN);
 	}
 	
 	public Block getBlockWithDir(ForgeDirection dir)
 	{
-		return Block.blocksList[this.getBlockIdWithDir(dir)];
+		return this.worldObj.getBlock(this.xCoord + dir.offsetX, this.yCoord + dir.offsetY, this.zCoord + dir.offsetZ);
+	}
+	
+	public Block getBlock()
+	{
+		return this.getBlockWithDir(ForgeDirection.UNKNOWN);
 	}
 	
 	public boolean setMeta(int meta)
@@ -120,7 +114,7 @@ public class HMVector
 	
 	public TileEntity getTileEntityWithDir(ForgeDirection dir)
 	{
-		return this.worldObj.getBlockTileEntity(this.xCoord + dir.offsetX, this.yCoord + dir.offsetY, this.zCoord + dir.offsetZ);
+		return this.worldObj.getTileEntity(this.xCoord + dir.offsetX, this.yCoord + dir.offsetY, this.zCoord + dir.offsetZ);
 	}
 	
 	public void setLightValue(EnumSkyBlock lightType, int value)
@@ -148,14 +142,14 @@ public class HMVector
 		return this.worldObj.provider.dimensionId;
 	}
 	
-	public boolean isGettingRedstoned()
+	public int getRedstonePower()
 	{
-		return this.isGettingRedstonedWithDir(ForgeDirection.UNKNOWN);
+		return this.getRedstonePower(ForgeDirection.UNKNOWN);
 	}
 	
-	public boolean isGettingRedstonedWithDir(ForgeDirection dir)
+	public int getRedstonePower(ForgeDirection dir)
 	{
-		return this.worldObj.isBlockGettingPowered(this.xCoord + dir.offsetX, this.yCoord + dir.offsetY, this.zCoord + dir.offsetZ);
+		return this.worldObj.getIndirectPowerLevelTo(this.xCoord, this.yCoord, this.zCoord, dir.ordinal());
 	}
 	
 	public boolean isGettingIndirectlyRedstoned()
@@ -183,15 +177,15 @@ public class HMVector
 		return this.worldObj.isDaytime();
 	}
 	
-	public void markBlockForRenderUpdate()
+	public void markBlockForUpdate()
 	{
-		this.markNeighborBlockForRenderUpdate(ForgeDirection.UNKNOWN);
+		this.markNeighborBlockForUpdate(ForgeDirection.UNKNOWN);
 		
 	}
 	
-	public void markNeighborBlockForRenderUpdate(ForgeDirection dir)
+	public void markNeighborBlockForUpdate(ForgeDirection dir)
 	{
-		this.worldObj.markBlockForRenderUpdate(this.xCoord + dir.offsetX, this.yCoord + dir.offsetY, this.zCoord + dir.offsetZ);
+		this.worldObj.markBlockForUpdate(this.xCoord + dir.offsetX, this.yCoord + dir.offsetY, this.zCoord + dir.offsetZ);
 		
 	}
 	
@@ -203,7 +197,7 @@ public class HMVector
 	
 	public void updateNeighboringBlocksWithDir(ForgeDirection dir)
 	{
-		this.worldObj.notifyBlocksOfNeighborChange(this.xCoord + dir.offsetX, this.yCoord + dir.offsetY, this.zCoord + dir.offsetZ, this.getBlockIdWithDir(dir));
+		this.worldObj.notifyBlocksOfNeighborChange(this.xCoord + dir.offsetX, this.yCoord + dir.offsetY, this.zCoord + dir.offsetZ, this.getBlockWithDir(dir));
 		
 	}
 	
@@ -212,42 +206,13 @@ public class HMVector
 		this.worldObj.createExplosion(entity, this.xCoord, this.yCoord, this.zCoord, str, idk);
 	}
 	
-	/**
-	 * 
-	 * Apparently, you CAN self-terminate.
-	 * 
-	 * @return
-	 */
-	public boolean selfTerminate()
-	{
-		return this.setBlockId(0);
-	}
-	
-	public static EntityPlayerMP getPlayerInWorld(World world, String name)
-	{
-		if (!world.playerEntities.isEmpty())
-		{
-			for (EntityPlayerMP player : (ArrayList<EntityPlayerMP>)world.playerEntities)
-			{
-				if (player.username.equalsIgnoreCase(name))
-				{
-					return player;
-				}
-				
-			}
-			
-		}
-		
-		return null;
-	}
-	
-	public EntityPlayerMP getPlayerInWorld(String name)
+	public EntityPlayer getPlayerInWorld(String name)
 	{
 		if (!this.worldObj.playerEntities.isEmpty())
 		{
-			for (EntityPlayerMP player : (ArrayList<EntityPlayerMP>)this.worldObj.playerEntities)
+			for (EntityPlayer player : (ArrayList<EntityPlayer>)this.worldObj.playerEntities)
 			{
-				if (player.username.equalsIgnoreCase(name))
+				if (player.getCommandSenderName().equalsIgnoreCase(name))
 				{
 					return player;
 				}
@@ -257,11 +222,6 @@ public class HMVector
 		}
 		
 		return null;
-	}
-	
-	public Vector3 toVector3()
-	{
-		return new Vector3(this.xCoord, this.yCoord, this.zCoord);
 	}
 	
 	public NBTTagCompound writeToNBTTag(NBTTagCompound tag)

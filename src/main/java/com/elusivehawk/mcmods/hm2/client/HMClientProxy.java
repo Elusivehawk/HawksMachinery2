@@ -5,7 +5,6 @@ import java.util.List;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import com.elusivehawk.mcmods.hm2.HMCommonProxy;
-import com.elusivehawk.mcmods.hm2.IHMServerGuiHandler;
 import com.google.common.collect.Lists;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;

@@ -1,8 +1,6 @@
 
 package com.elusivehawk.mcmods.hm2.items;
 
-import com.elusivehawk.mcmods.hm2.HawksMachinery2;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 /**

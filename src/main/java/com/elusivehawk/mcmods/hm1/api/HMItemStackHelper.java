@@ -41,7 +41,7 @@ public class HMItemStackHelper
 			else if (data[c] instanceof Short) item.stackTagCompound.setShort(tagNames[c], (Short)data[c]);
 			else if (data[c] instanceof Byte) item.stackTagCompound.setByte(tagNames[c], (Byte)data[c]);
 			else if (data[c] instanceof Boolean) item.stackTagCompound.setBoolean(tagNames[c], (Boolean)data[c]);
-			else if (data[c] instanceof NBTTagCompound) item.stackTagCompound.setCompoundTag(tagNames[c], (NBTTagCompound)data[c]);
+			else if (data[c] instanceof NBTTagCompound) item.stackTagCompound.setTag(tagNames[c], (NBTTagCompound)data[c]);
 			else if (data[c] instanceof NBTBase) item.stackTagCompound.setTag(tagNames[c], (NBTBase)data[c]);
 			
 		}

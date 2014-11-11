@@ -3,7 +3,6 @@ package com.elusivehawk.mcmods.hm2.client;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 /**

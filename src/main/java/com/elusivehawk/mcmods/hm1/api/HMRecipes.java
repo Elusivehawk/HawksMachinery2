@@ -140,7 +140,7 @@ public class HMRecipes
 			
 			if (output != null)
 			{
-				if (input.itemID == output.itemID && input.isItemStackDamageable() && output.isItemStackDamageable())
+				if (input.getItem() == output.getItem() && input.isItemStackDamageable() && output.isItemStackDamageable())
 				{
 					output.setItemDamage(input.getItemDamage());
 				}

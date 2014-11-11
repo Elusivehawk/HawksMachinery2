@@ -16,29 +16,32 @@ import com.elusivehawk.mcmods.hm1.HMCore;
  */
 public class HMBlock extends Block
 {
-	private Achievement onBlockBrokenAch;
+	private final Achievement breakAchieve;
 	
-	public HMBlock(int id, Material mat, int textureID, Achievement onBrokenAch)
+	public HMBlock(String id, Material mat)
 	{
-		super(id, mat);
+		this(id, mat, null);
+		
+	}
+	
+	@SuppressWarnings("unqualified-field-access")
+	public HMBlock(String id, Material mat, Achievement a)
+	{
+		super(mat);
+		
+		setBlockName(id);
 		setHardness(1.0F);
 		setResistance(5.0F);
-		setTextureFile(HMCore.BLOCK_TEXTURE_FILE);
 		setCreativeTab(HMCore.instance().tab);
 		
-		if (textureID >= 0)
-		{
-			this.blockIndexInTexture = textureID;
-		}
-		
-		this.onBlockBrokenAch = onBrokenAch;
+		breakAchieve = a;
 		
 	}
 	
 	@Override
 	public void onBlockHarvested(World world, int x, int y, int z, int meta, EntityPlayer player)
 	{
-		if (this.onBlockBrokenAch != null) player.addStat(this.onBlockBrokenAch, 1);
+		if (this.breakAchieve != null) player.addStat(this.breakAchieve, 1);
 		
 	}
 	

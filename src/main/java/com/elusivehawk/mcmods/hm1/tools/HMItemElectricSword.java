@@ -5,7 +5,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import hawksmachinery.core.common.item.HMItemElectric;
+import com.elusivehawk.mcmods.hm1.item.HMItemElectric;
 
 /**
  * 

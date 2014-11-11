@@ -1,8 +1,6 @@
 
 package com.elusivehawk.mcmods.hm2.blocks;
 
-import java.util.Random;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;

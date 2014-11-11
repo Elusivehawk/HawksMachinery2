@@ -1,12 +1,12 @@
 
 package hawksmachinery.tools.common.item;
 
-import hawksmachinery.core.common.item.HMItemElectric;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
+import com.elusivehawk.mcmods.hm1.item.HMItemElectric;
 
 /**
  * 
