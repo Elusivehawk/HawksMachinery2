@@ -25,7 +25,7 @@ public final class HMEvents
 		
 	}
 	
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public void onItemCrafted(PlayerEvent.ItemCraftedEvent event)
 	{
 		
@@ -72,6 +72,6 @@ public final class HMEvents
 	{
 		
 		
-	}
+	}*/
 	
 }

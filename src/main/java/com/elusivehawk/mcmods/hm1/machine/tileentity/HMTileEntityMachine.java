@@ -16,8 +16,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import com.elusivehawk.mcmods.hm1.api.HMRecipes.HMEnumProcessing;
 import com.elusivehawk.mcmods.hm1.api.HMRepairInterfaces.IHMSappable;
 import com.elusivehawk.mcmods.hm1.api.HMRepairInterfaces.IHMSapper;
-import com.elusivehawk.mcmods.hm1.api.HMVector;
 import com.elusivehawk.mcmods.hm1.api.IHMMachine;
+import com.elusivehawk.mcmods.hm2.HMVector;
 import com.google.common.io.ByteArrayDataInput;
 
 /**

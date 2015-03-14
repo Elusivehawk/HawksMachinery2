@@ -20,12 +20,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class HMItemMeta extends HMItem
 {
 	@SideOnly(Side.CLIENT)
-	protected final IIcon[] icons = new IIcon[16];
-	protected final String[] types = new String[16];
-	protected final boolean[] effect = new boolean[16];
-	protected final EnumRarity[] rarity = new EnumRarity[16];
-	protected final int limit;
+	private final IIcon[] icons = new IIcon[16];
 	
+	private final String[] types = new String[16];
+	private final boolean[] effect = new boolean[16];
+	private final EnumRarity[] rarity = new EnumRarity[16];
+	private final int limit;
+	
+	@SuppressWarnings("unqualified-field-access")
 	public HMItemMeta(String name, String... enums)
 	{
 		super(name);
@@ -105,6 +107,7 @@ public class HMItemMeta extends HMItem
 		return super.getUnlocalizedName(item) + "." + this.types[item.getItemDamage()];
 	}
 	
+	@SuppressWarnings({"unchecked", "rawtypes"})
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item item, CreativeTabs tab, List list)

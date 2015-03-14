@@ -17,6 +17,7 @@ public class HMSlotOutput extends Slot
 	private final EntityPlayer player;
 	private int quantity = 0;
 	
+	@SuppressWarnings("unqualified-field-access")
 	public HMSlotOutput(EntityPlayer thePlayer, IInventory inv, int slot, int x, int y)
 	{
 		super(inv, slot, x, y);

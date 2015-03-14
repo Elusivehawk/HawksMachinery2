@@ -1,6 +1,7 @@
 
 package com.elusivehawk.mcmods.hm2.blocks;
 
+import com.elusivehawk.mcmods.hm2.tile.HMTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

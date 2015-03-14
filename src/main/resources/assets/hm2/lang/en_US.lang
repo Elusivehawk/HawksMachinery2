@@ -1,14 +1,16 @@
-//Blocks
+# Blocks #
 
 
 
 
-//Items
+# Items #
 
 
 
 
-//Other
+# Other #
+
+hm2.waila.storagehud=%s / %s MP
 
 itemGroup.hm2.blocks=HM2 Blocks
 itemGroup.hm2.items=HM2 Items
